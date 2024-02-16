@@ -3,8 +3,18 @@ version: '3.9'
 services:
 
   www:
-    image: php:7.4-apache
+    build: ./php                                                                # Nuestra imagen incorpora 'mysqli'
     ports:
       - "8080:80"
     volumes:
       - ./php/src:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0.35
+    ports:
+      - "3306:3306"
+    env_file: mysql.properties
+    command: --default-authentication-plugin=mysql_native_password              # Se añade ante 'mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password]'
+
