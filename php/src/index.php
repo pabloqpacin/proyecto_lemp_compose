@@ -15,13 +15,13 @@
 <body>
         <h1>TICKETARDOS</h1>
 
-
     <?php
 
 $i = 1;
-echo $i, '<br>', $i+1 . '<br>' . '<hr>';
+echo $i, '<br>', $i+1 . '<br>';
 // echo "${i} <br> ${i+1} <br>";
 echo "supdawg <br>";
+echo '<hr>';
 
     ?>
 

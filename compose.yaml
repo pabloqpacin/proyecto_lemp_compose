@@ -12,17 +12,25 @@ services:
       - db
 
   db:
-    image: mysql:8.0.35
-    ports:
-      - "3306:3306"
+    image: mysql:8.0.35                                                       # image: mariadb:10.6
     env_file: mysql.properties
-    command: --default-authentication-plugin=mysql_native_password              # Se añade ante 'mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password]'
+    command: --default-authentication-plugin=caching_sha2_password              # =mysql_native_password -- Se añade ante 'mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password]' --     command: --default-authentication-plugin=mysql_native_password              # Se añade ante 'mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password]'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d                                # Se ejecutarán todos los dumps.sql en ese directorio del contenedor
+      - mysql_data:/var/lib/mysql                                             # $ sudo ls -la /var/lib/docker/volumes/proyecto_mysql_data/_data
+    # restart: always
 
   phpmyadmin:
-    image: phpmyadmin                                                           # :5-fpm ?
-    ports:
-      - 8080:80
+    image: phpmyadmin:5-apache                                                # :5-fpm ?
     env_file:
       - pma.properties
+    ports:
+      - 8080:80
     depends_on:
       - db
+
+
+volumes:
+  mysql_data:
