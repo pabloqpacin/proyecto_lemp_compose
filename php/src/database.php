@@ -17,10 +17,11 @@ https://www.youtube.com/watch?v=zZ6vybT1HQs
     $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
     
     if ($conn){
-        echo "You are connected";
+        echo "You are connected <br>";
     } else {
-        echo "Could not connect!";
+        echo "Could not connect! <br>";
     }
 
+    // try{}catch(){}
 
 ?>
