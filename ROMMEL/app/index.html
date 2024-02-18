@@ -1,0 +1,117 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Ticketing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sistema de Ticketing</h1>
+  </header>
+  <main>
+    <section id="resumen-tickets">
+      <h2>Resumen de tickets</h2>
+      <ul>
+        <li>
+          <span class="etiqueta">Abiertos:</span>
+          <span class="numero">4</span>
+        </li>
+        <li>
+          <span class="etiqueta">Cerrados:</span>
+          <span class="numero">10</span>
+        </li>
+        <li>
+          <span class="etiqueta">En curso:</span>
+          <span class="numero">6</span>
+        </li>
+      </ul>
+    </section>
+    <section id="acciones">
+      <a href="crear-ticket.html" class="btn btn-primary">Crear ticket</a>
+      <form id="buscador" action="#">
+        <input type="text" placeholder="Buscar ticket por ID">
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+    <section id="historial-tickets">
+      <h2>Historial de tickets</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Departamento</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+            <th>Prioridad</th>
+            <th>Resumen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Soporte técnico</td>
+            <td>Hardware</td>
+            <td>Abierto</td>
+            <td>2023-11-14</td>
+            <td>Urgente</td>
+            <td>No funciona el equipo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Ventas</td>
+            <td>Software</td>
+            <td>Cerrado</td>
+            <td>2023-11-15</td>
+            <td>Normal</td>
+            <td>Problema con la licencia</td>
+          </tr>
+          </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="script.js">
+    // Función para buscar tickets por ID
+function buscarTicket(id) {
+  // Consultar la API con el ID del ticket
+  // Mostrar los resultados de la búsqueda
+}
+
+// Añadir evento al botón de búsqueda
+document.querySelector("#buscador button").addEventListener("click", function() {
+  const id = document.querySelector("#buscador input").value;
+  buscarTicket(id);
+});
+
+// Función para mostrar un mensaje de error
+function mostrarError(mensaje) {
+  // Mostrar el mensaje de error en la interfaz
+}
+
+// Función para validar los datos del formulario de creación de tickets
+function validarFormulario(formulario) {
+  // Validar que todos los campos estén completos
+  // Mostrar mensajes de error si hay campos incompletos
+  // Devolver true si el formulario es válido, false si no lo es
+}
+
+// Añadir evento al botón de enviar del formulario de creación de tickets
+document.querySelector("#crear-ticket form button").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  const formulario = document.querySelector("#crear-ticket form");
+
+  if (!validarFormulario(formulario)) {
+    return;
+  }
+
+  // Enviar los datos del formulario a la API
+  // Mostrar un mensaje de éxito si el ticket se crea correctamente
+  // Mostrar un mensaje de error si hay algún problema al crear el ticket
+});
+
+  </script>
+</body>
+</html>

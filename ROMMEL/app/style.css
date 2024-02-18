@@ -1,0 +1,79 @@
+/* Estilos generales */
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  ul, li {
+    list-style: none;
+    padding: 0;
+  }
+  
+  a, button {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos específicos */
+  
+  #resumen-tickets {
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  #resumen-tickets ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #resumen-tickets li {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  #acciones {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #acciones a {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  #buscador {
+    margin: 10px;
+    display: flex;
+  }
+  
+  #buscador input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 200px;
+  }
+  
+  #buscador button {
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  #historial-tickets {
+    margin: 20px auto
+  }
