@@ -7,7 +7,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./php/src:/var/www/html
+      # - ./php/src:/var/www/html
+      - ./ROMMEL/app:/var/www/html
     depends_on:
       - db
 
