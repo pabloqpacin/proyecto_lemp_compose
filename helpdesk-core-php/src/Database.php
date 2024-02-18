@@ -4,7 +4,7 @@ class Database {
 
     private static $instance = null;
 
-    private static $host = 'localhost';
+    private static $host = 'db:3306';
     private static $user = 'root';
     private static $password = 'password';
     private static $db = 'helpdesk_core_php';

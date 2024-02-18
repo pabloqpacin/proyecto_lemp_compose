@@ -7,6 +7,11 @@
 -- Server version: 8.0.29-0ubuntu0.20.04.3
 -- PHP Version: 7.4.3
 
+
+-- OJOOOOOOOOOOOOOOOOO
+USE helpdesk_core_php;
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";

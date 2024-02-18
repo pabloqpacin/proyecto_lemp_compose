@@ -41,7 +41,7 @@ sudo apt-get install git    # grc jq mycli
 Clonamos el repositorio:
 
 ```bash
-git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+git clone -b HelpDeskCore https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
 ```
 
 Entramos al repo local y arrancamos docker compose:
@@ -51,20 +51,27 @@ cd $HOME/PROYECTO
 docker compose up -d
 ```
 
-Vemos nuestro sitio web y consultamos phpmyadmin:
+Verificamos conexión a la base de datos con `phpmyadmin` en el navegador o con `mycli` en la terminal:
+
+```bash
+# phpmyadmin
+xdg-open http://localhost:8080
+
+# mycli
+mycli -u root -ppassword -D helpdesk_core_php
+```
+
+Visitamos la [webapp](https://www.synchlabcoding.com/2023/06/helpdesk-system-with-jquery-php-mysql.html) y nos logueamos:
 
 ```bash
 xdg-open http://localhost:80
-xdg-open http://localhost:8080
 
-# DEMO TICKETARDOS: PHP MYSQL -- https://www.youtube.com/watch?v=zZ6vybT1HQs
-  xdg-open http://localhost/select_user.php
-  xdg-open http://localhost/add_user.php
-  xdg-open http://localhost/form.php
-  xdg-open http://localhost/select_user.php
+# Username: johndoe@helpdesk.com
+# Password: password
 
-# $ mycli -u root -ppassword -D db1
+# ...
 ```
+
 
 Algunos comandos útiles:
 
@@ -73,6 +80,7 @@ docker ps
 docker compose logs -f
 
 docker inspect proyecto-www-1 proyecto-db-1 # | less
+docker volume ls
 docker network ls
 docker network inspect proyecto_default     # | jq -C | bat
 
