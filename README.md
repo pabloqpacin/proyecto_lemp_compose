@@ -41,29 +41,23 @@ sudo apt-get install git    # grc jq mycli
 Clonamos el repositorio:
 
 ```bash
-git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+git clone -b Rommel_SisteDeTick https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
 ```
 
-Entramos al repo local y arrancamos docker compose:
+Entramos al repo local y desplegamos los servicios indicados en `compose.yaml`:
 
 ```bash
 cd $HOME/PROYECTO
 docker compose up -d
 ```
 
-Vemos nuestro sitio web y consultamos phpmyadmin:
+Vemos nuestro sitio web y consultamos la base de datos mediante `phpmyadmin` en el navegador y `mycli` en la terminal:
 
 ```bash
 xdg-open http://localhost:80
+
 xdg-open http://localhost:8080
-
-# DEMO TICKETARDOS: PHP MYSQL -- https://www.youtube.com/watch?v=zZ6vybT1HQs
-  xdg-open http://localhost/select_user.php
-  xdg-open http://localhost/add_user.php
-  xdg-open http://localhost/form.php
-  xdg-open http://localhost/select_user.php
-
-# $ mycli -u root -ppassword -D db1
+mycli -u root -ppassword -D db1
 ```
 
 Algunos comandos útiles:
