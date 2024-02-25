@@ -7,10 +7,10 @@ services:
     ports:
       - 80:80
     volumes:
-      # - ./php/src:/var/www/html
       - ./helpdesk-core-php:/var/www/html
     depends_on:
       - db
+    # restart: always
 
   db:
     image: mysql:8.0.35                                                       # image: mariadb:10.6
@@ -19,19 +19,18 @@ services:
     ports:
       - 3306:3306
     volumes:
-      # - ./mysql/init:/docker-entrypoint-initdb.d                                # Se ejecutarán todos los dumps.sql en ese directorio del contenedor
-      - ./helpdesk-core-php/database:/docker-entrypoint-initdb.d                                # Se ejecutarán todos los dumps.sql en ese directorio del contenedor
-      # - mysql_data:/var/lib/mysql                                             # $ sudo ls -la /var/lib/docker/volumes/proyecto_mysql_data/_data
+      - ./helpdesk-core-php/database:/docker-entrypoint-initdb.d                # Se ejecutarán todos los dumps.sql en ese directorio del contenedor
+      - mysql_data:/var/lib/mysql                                             # $ sudo ls -la /var/lib/docker/volumes/proyecto_mysql_data/_data
     # restart: always
 
-  # phpmyadmin:
-  #   image: phpmyadmin:5-apache                                                # :5-fpm ?
-  #   env_file:
-  #     - pma.properties
-  #   ports:
-  #     - 8080:80
-  #   depends_on:
-  #     - db
+  phpmyadmin:
+    image: phpmyadmin:5-apache                                                # :5-fpm ?
+    env_file:
+      - pma.properties
+    ports:
+      - 8080:80
+    depends_on:
+      - db
 
 
 volumes:

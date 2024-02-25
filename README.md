@@ -14,7 +14,7 @@ Instalamos dependencias (en Ubuntu 22.04 y distros derivadas):
 > Esto lo automatizaremos con scripts
 
 ```bash
-# Instalamos docker
+# Instalamos docker -- https://docs.docker.com/engine/install/ubuntu/
     # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -41,7 +41,8 @@ sudo apt-get install git    # grc jq mycli
 Clonamos el repositorio:
 
 ```bash
-git clone -b HelpDeskCore https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+# git clone -b HelpDeskCore https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
 ```
 
 Entramos al repo local y arrancamos docker compose:
