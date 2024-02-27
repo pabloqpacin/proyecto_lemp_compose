@@ -70,10 +70,10 @@ git status
 # Edita el archivo
 echo -e "\nBuenardas" >> README.md
 
-# Comprueba el estado (sucio)
+# Comprueba el estado (ready + sucio)
 git status
 
-# Añade todos los cambios del repositorio
+# Añade (stage) todos los cambios del repositorio
 git add . || git add -A
 
 # Comprueba el estado (ready)
