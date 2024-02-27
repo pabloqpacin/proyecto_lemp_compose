@@ -148,7 +148,7 @@ git log || glod
   # glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
 
 # Edita el archivo
-echo -e "\n\nTaluego" >> README.md
+echo -e "\nTaluego" >> README.md
 
 # Léelo con BAT -- Date cuenta de la integración con git...
 bat README.md
