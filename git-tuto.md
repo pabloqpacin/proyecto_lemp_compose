@@ -11,7 +11,7 @@
     - [Primera y segunda commits](#primera-y-segunda-commits)
   - [Github - Primer repositorio remoto](#github---primer-repositorio-remoto)
     - [PREÁMBULO](#preámbulo)
-  - [1 - Crear repo remoto (GITHUB)](#1---crear-repo-remoto-github)
+    - [1 - Crear repo remoto (GITHUB)](#1---crear-repo-remoto-github)
 
 ## Git - Primer repositorio local
 
@@ -58,7 +58,7 @@ git status
 # Crea un documento y añádele una línea
 echo "# Mi primer repo" > README.md
 
-# Comprueba el estado (ready + sucio)
+# Comprueba el estado (sucio)
 git status
 
 # Añade el archivo en su versión actual al control de versiones de Git (STAGING AREA)
@@ -106,7 +106,7 @@ git config --global init.defaultBranch main
 ls -la ~/.gitconfig
 bat ~/.gitconfig || cat ~/.gitconfig
 
-# Renombra la branch del primer-repo
+# Renombra la branch en PRIMER-REPO
 git branch -m master main
 
 # > Cierra panel tmux (*)
@@ -122,7 +122,12 @@ git config --global user.email $USER@example.com              # El de Github...
 bat ~/.gitconfig
 
 # # Date cuenta de que si este archivo lo importas de forma programática, se acaba antes
+
+# # Crea tu repo de dotfiles tuyos y ponle el .gitconfig, márcate un symlink -- Podrías hacer lo mismo con el .zshrc.bak de oh-my-zsh
 # $ mkdir ~/my-dotfiles && mv ~/.gitconfig ~/my-dotfiles && ln -s ~/my-dotfiles/.gitconfig ~/ && git init ~/my-dotfiles
+
+# # En el futuro podrías importarlo/clonarlo en una nueva vm u otro sistema en general
+# $ git clone <...>/my-dotfiles.git && ln -s ~/my-dotfiles/.gitconfig ~/
 
 # > https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Configurando-Git-por-primera-vez
 ```
@@ -139,13 +144,13 @@ git status
 # Revisa el histórico
 git log || glod
 
-  # [main][~/dotfiles]$ alias glol
+  # $ alias glol
   # glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
 
 # Edita el archivo
 echo -e "\n\nTaluego" >> README.md
 
-# Léelo con BAT -- Date cuenta de la integración con git
+# Léelo con BAT -- Date cuenta de la integración con git...
 bat README.md
 
 # Comprueba el estado (sucio)
@@ -168,6 +173,8 @@ git commit -m "Update README"
 
 # Revisa el histórico
 git log -stat || glols
+
+# > Merece la pena echar un vistacillo a los atajos de ohmyzsh que podemos habilitar en nuestro .zshrc... -- https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
 ```
 
 ![infografia_areas](https://res.cloudinary.com/practicaldev/image/fetch/s--M_fHUEqA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/128hsgntnsu9bww0y8sz.png)
@@ -200,7 +207,7 @@ git log -stat || glols
 ![infografia_ramas](https://www.nobledesktop.com/image/gitresources/git-branches-merge.png)
 
 
-## 1 - Crear repo remoto (GITHUB)
+### 1 - Crear repo remoto (GITHUB)
 - [ ] Crear cuenta
 
 <!--
