@@ -42,7 +42,6 @@ Clonamos el repositorio:
 
 ```bash
 git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
-# git clone -b HelpDeskCore https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
 ```
 
 Entramos al repo local y arrancamos docker compose:
@@ -85,5 +84,9 @@ docker volume ls
 docker network ls
 docker network inspect proyecto_default     # | jq -C | bat
 
-docker compose down
+docker compose down -v
 ```
+
+---
+
+> WIP: [Entorno nginx (gist)](https://gist.github.com/pabloqpacin/38cd4e4141776fbb550240463abea467)
