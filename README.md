@@ -41,7 +41,7 @@ sudo apt-get install git    # grc jq mycli
 Clonamos el repositorio:
 
 ```bash
-git clone -b dev_nginx https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
 ```
 
 Entramos al repo local y arrancamos docker compose:
