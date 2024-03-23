@@ -1,4 +1,5 @@
-version: '3.9'
+# version: '3.9'
+name: proyecto
 
 services:
 
@@ -6,6 +7,8 @@ services:
     build: ./php-fpm
     volumes:
       - ./helpdesk-core-php:/var/www/html
+    restart:
+      always
 
   www:
     image: nginx:1.25.4-alpine
@@ -17,6 +20,8 @@ services:
     links:
       - php-fpm
       - db
+    restart:
+      always
 
   db:
     image: mariadb:10.6
@@ -27,15 +32,17 @@ services:
       - mysql_data:/var/lib/mysql                                               # $ sudo ls -la /var/lib/docker/volumes/proyecto_mysql_data/_data
     command: --default-authentication-plugin=caching_sha2_password              # Se añade ante 'mysqli_connect(): The server requested authentication method unknown to the client [caching_sha2_password]' --- *=mysql_native_password
     env_file: mysql.properties
+    restart:
+      always
 
-  phpmyadmin:
-    image: phpmyadmin:5-apache
-    ports:
-      - "8080:80"
-    env_file:
-      - phpmyadmin.properties
-    depends_on:
-      - db
+  # phpmyadmin:
+  #   image: phpmyadmin:5-apache
+  #   ports:
+  #     - "8080:80"
+  #   env_file:
+  #     - phpmyadmin.properties
+  #   depends_on:
+  #     - db
 
 
 volumes:
