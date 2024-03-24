@@ -55,10 +55,9 @@ clone_dotfiles() {
         sed -i 's/OneHalfDark/Coldark-Dark/' ~/.config/bat/config
     fi
     if [ ! -L ~/.vimrc ]; then
-        if [ -e ~/.vimrc]; then mv ~/.vimrc{,.bak}; fi
-        ln -s ~/dotfiles/.vimrc ~/ && \
-            sudo ln -s $HOME/dotfiles/.vimrc /root/ && \
-            sed -i 's/nvim/vim/g' ~/dotfiles/.zshrc
+        if [ -e ~/.vimrc ]; then mv ~/.vimrc{,.bak}; fi
+        sed -i 's/nvim/vim/g' ~/dotfiles/.zshrc
+        ln -s ~/dotfiles/.vimrc ~/
     fi
     # if [ ! -L ~/.config/tmux ]; then
     #     ln -s ~/dotfiles/.config/tmux ~/.config       # Problemas para seleccionar/copiar texto
@@ -90,6 +89,19 @@ setup_zsh(){
 # }
 
 
+start_compose(){
+    if [ ! -d $HOME/PROYECTO ]; then
+        git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+    fi
+
+    if ! docker ps -a --format '{{.Names}}' | grep -q 'proyecto'; then
+        cd $HOME/PROYECTO
+        docker compose up -d
+        cd $HOME
+    fi
+}
+
+
 # ---
 
 if true; then
@@ -103,7 +115,11 @@ if true; then
     if [[ $opt_zsh == 'y' ]]; then
         setup_zsh
     fi
+
+    start_compose
 fi
 
-echo "" && neofetch && echo -e "\Reinicia el contenedor.\n"
+echo "" && neofetch && grc docker ps -a && echo -e "\nReinicia el contenedor.\n"
+
+
 

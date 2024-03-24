@@ -5,6 +5,38 @@
 
 ## Cómo poner a funcionar esto
 
+### a) Con scripts
+
+1. En Proxmox, creamos el contenedor LXC
+
+```bash
+# Docker LXC (default)
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/docker.sh)"
+  # Añadir Portainer: no
+  # Añadir Docker Compose: sí
+```
+
+2. En el contenedor LXC, configuramos el entorno y desplegamos la aplicación web
+
+```bash
+bash -c "$(curl -fsSL https://github.com/pabloqpacin/lamp_docker/raw/main/scripts/lxc-base.sh)"
+```
+
+<!-- 3. Mantenimiento
+
+```bash
+dps
+dvls
+``` -->
+
+<br>
+<hr>
+
+
+### b) Sin scripts
+
+> WIP
+
 Instalamos dependencias (en Ubuntu 22.04 y distros derivadas):
 
 <!-- Raspberry Pi -->
@@ -86,7 +118,3 @@ docker network inspect proyecto_default     # | jq -C | bat
 
 docker compose down -v
 ```
-
----
-
-> WIP: [Entorno nginx (gist)](https://gist.github.com/pabloqpacin/38cd4e4141776fbb550240463abea467)
