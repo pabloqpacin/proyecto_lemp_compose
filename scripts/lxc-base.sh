@@ -119,7 +119,6 @@ if true; then
     start_compose
 fi
 
-echo "" && neofetch && grc docker ps -a && echo -e "\nReinicia el contenedor.\n"
-
-
+echo "" && neofetch && grc docker ps -a && echo "" &&
+df -h | grep -B1 '/$' && echo -e "\nReinicia el contenedor.\n"
 
