@@ -231,11 +231,15 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
+-- Contraseñas: Rommel=password, Jose==password, Pablo==changeme
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `role`, `avatar`, `last_password`, `created_at`, `updated_at`) VALUES
   (1, 'John Doe', 'johndoe@helpdesk.com', '8888888888', '$2y$10$PHXjdcPjksokkGryfqK.WePBgiQB30Gw.ytYBHdmGtqtoGtVHtAm.', 'admin', NULL, '$2y$10$PHXjdcPjksokkGryfqK.WePBgiQB30Gw.ytYBHdmGtqtoGtVHtAm.', '2023-03-20 07:16:20', '2019-05-19 09:01:34'),
   (3, 'injamul ', 'johndoe@helpdesk.com', '1234567899', '$2y$10$6N4gbdypYQvRkU2ke9Q1f.Gm4fcGY/PEpv2rSB77wiSLZaOy8kq5i', 'member', NULL, '$2y$10$6N4gbdypYQvRkU2ke9Q1f.Gm4fcGY/PEpv2rSB77wiSLZaOy8kq5i', '2023-03-20 07:16:07', '2019-05-24 07:58:53'),
-  (4, 'Alex', 'kangkan@email.com', '9999999999', '$2y$10$Q0rxoFO4fSrcdp58CO0RNOSDP7znVc9eGY6Z4xjQ8MTLHYhx0TF.6', 'member', NULL, '$2y$10$Q0rxoFO4fSrcdp58CO0RNOSDP7znVc9eGY6Z4xjQ8MTLHYhx0TF.6', '2023-03-20 06:36:52', '2019-05-30 08:49:22')
+  (4, 'Alex', 'kangkan@email.com', '9999999999', '$2y$10$Q0rxoFO4fSrcdp58CO0RNOSDP7znVc9eGY6Z4xjQ8MTLHYhx0TF.6', 'member', NULL, '$2y$10$Q0rxoFO4fSrcdp58CO0RNOSDP7znVc9eGY6Z4xjQ8MTLHYhx0TF.6', '2023-03-20 06:36:52', '2019-05-30 08:49:22'),
+  (5, 'Rommel','rommel@rpj.solutions.com','1234567890','$2y$10$QmOGgEygsPr6Hr5XBVWPEOcThXOkAdzJ.gSBT4TgJBY3.SbXpklB6','admin',NULL,'$2y$10$QmOGgEygsPr6Hr5XBVWPEOcThXOkAdzJ.gSBT4TgJBY3.SbXpklB6','2024-03-24 19:35:34','2024-03-24 19:35:34'),
+  (6, 'Pablo','pablo@rpj.solutions.com','1234567890','$2y$10$NiehmezNwCIa3ufUb1Rnwel5oaYm6EaN/xCIZbhxjZh2/61qViPvy','admin',NULL,'$2y$10$NiehmezNwCIa3ufUb1Rnwel5oaYm6EaN/xCIZbhxjZh2/61qViPvy','2024-03-24 17:43:50','2024-03-24 17:43:50'),
+  (7, 'Jose','jose@rpj.solutions.com','1234567890','$2y$10$cD.ud2Ydhcvl9KguBQe95eK4CxOuti6QYb6OYCGRdi0YbUE/F9BeS','admin',NULL,'$2y$10$cD.ud2Ydhcvl9KguBQe95eK4CxOuti6QYb6OYCGRdi0YbUE/F9BeS','2024-03-24 19:35:58','2024-03-24 19:35:58')
 ;
 
 --
