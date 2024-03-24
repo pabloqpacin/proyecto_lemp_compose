@@ -1,0 +1,79 @@
+###########################
+# ConfigMap VS Secret... #
+#########################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: datos-mysql-env
+  namespace: default
+data:
+  MYSQL_USER: admin
+  MYSQL_PASSWORD: password
+  MYSQL_ROOT_PASSWORD: password
+  MYSQL_DATABASE: helpdesk_core_php
+  MYSQL_ROOT_HOST: '%'
+  TZ: Europe/Madrid
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    app: webapp
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: 30306
+  selector:
+    app: webapp
+    tier: mysql
+  # clusterIP: None
+  type: NodePort
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: webapp
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: webapp
+        tier: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0.35
+        envFrom:
+        - configMapRef:
+            name: datos-mysql-env
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          # mountPath: /var/lib/mysql
+          mountPath: /docker-entrypoint-initdb.d
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "100m"
+          limits:
+            memory: "1Gi"
+            cpu: "200m"
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: pvc-mysql
+

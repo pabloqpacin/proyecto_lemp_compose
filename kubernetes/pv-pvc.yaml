@@ -1,0 +1,56 @@
+###########################
+# VOLUMES: local, no NFS #
+#########################
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-apachephp
+spec:
+  storageClassName: apachephp
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /mnt/PROYECTO/helpdesk-core-php
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-apachephp
+spec:
+  storageClassName: apachephp
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-mysql
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: mysql
+  hostPath:
+    path: /mnt/PROYECTO/helpdesk-core-php/database
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-mysql
+spec:
+  storageClassName: mysql
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
