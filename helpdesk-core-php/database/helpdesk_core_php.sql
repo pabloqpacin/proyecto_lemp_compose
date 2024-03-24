@@ -8,8 +8,7 @@
 -- PHP Version: 7.4.3
 
 
--- OJOOOOOOOOOOOOOOOOO
-USE helpdesk_core_php;
+-- USE helpdesk_core_php;
 
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -112,7 +111,11 @@ CREATE TABLE `team` (
 INSERT INTO `team` (`id`, `name`, `created_at`, `updated_at`) VALUES
   (1, 'Server', '2019-05-19 09:49:15', '2019-05-19 09:49:15'),
   (2, 'Devops', '2019-05-19 09:49:15', '2019-05-19 09:49:15'),
-  (3, 'injamul ', '2019-05-23 19:16:36', '2019-05-23 19:16:36')
+  (3, 'injamul ', '2019-05-23 19:16:36', '2019-05-23 19:16:36'),
+  (10, 'Comercial', '2024-03-24 21:35:00', '2024-03-24 21:35:00'),
+  (11, 'Soporte Comercial', '2024-03-24 21:35:00', '2024-03-24 21:35:00'),
+  (12, 'Preventa', '2024-03-24 21:35:00', '2024-03-24 21:35:00'),
+  (13, 'Servicio', '2024-03-24 21:35:00', '2024-03-24 21:35:00')
 ;
 
 -- --------------------------------------------------------
@@ -231,15 +234,22 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
--- Contraseñas: Rommel=password, Jose==password, Pablo==changeme
+-- Contraseñas: Rommel=password, Jose==password, Pablo==changeme, randoms==password
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `role`, `avatar`, `last_password`, `created_at`, `updated_at`) VALUES
   (1, 'John Doe', 'johndoe@helpdesk.com', '8888888888', '$2y$10$PHXjdcPjksokkGryfqK.WePBgiQB30Gw.ytYBHdmGtqtoGtVHtAm.', 'admin', NULL, '$2y$10$PHXjdcPjksokkGryfqK.WePBgiQB30Gw.ytYBHdmGtqtoGtVHtAm.', '2023-03-20 07:16:20', '2019-05-19 09:01:34'),
   (3, 'injamul ', 'johndoe@helpdesk.com', '1234567899', '$2y$10$6N4gbdypYQvRkU2ke9Q1f.Gm4fcGY/PEpv2rSB77wiSLZaOy8kq5i', 'member', NULL, '$2y$10$6N4gbdypYQvRkU2ke9Q1f.Gm4fcGY/PEpv2rSB77wiSLZaOy8kq5i', '2023-03-20 07:16:07', '2019-05-24 07:58:53'),
   (4, 'Alex', 'kangkan@email.com', '9999999999', '$2y$10$Q0rxoFO4fSrcdp58CO0RNOSDP7znVc9eGY6Z4xjQ8MTLHYhx0TF.6', 'member', NULL, '$2y$10$Q0rxoFO4fSrcdp58CO0RNOSDP7znVc9eGY6Z4xjQ8MTLHYhx0TF.6', '2023-03-20 06:36:52', '2019-05-30 08:49:22'),
-  (5, 'Rommel','rommel@rpj.solutions.com','1234567890','$2y$10$QmOGgEygsPr6Hr5XBVWPEOcThXOkAdzJ.gSBT4TgJBY3.SbXpklB6','admin',NULL,'$2y$10$QmOGgEygsPr6Hr5XBVWPEOcThXOkAdzJ.gSBT4TgJBY3.SbXpklB6','2024-03-24 19:35:34','2024-03-24 19:35:34'),
-  (6, 'Pablo','pablo@rpj.solutions.com','1234567890','$2y$10$NiehmezNwCIa3ufUb1Rnwel5oaYm6EaN/xCIZbhxjZh2/61qViPvy','admin',NULL,'$2y$10$NiehmezNwCIa3ufUb1Rnwel5oaYm6EaN/xCIZbhxjZh2/61qViPvy','2024-03-24 17:43:50','2024-03-24 17:43:50'),
-  (7, 'Jose','jose@rpj.solutions.com','1234567890','$2y$10$cD.ud2Ydhcvl9KguBQe95eK4CxOuti6QYb6OYCGRdi0YbUE/F9BeS','admin',NULL,'$2y$10$cD.ud2Ydhcvl9KguBQe95eK4CxOuti6QYb6OYCGRdi0YbUE/F9BeS','2024-03-24 19:35:58','2024-03-24 19:35:58')
+  (10,'Rommel','rommel.rojas@rpj.solutions.com','1234567890','$2y$10$QmOGgEygsPr6Hr5XBVWPEOcThXOkAdzJ.gSBT4TgJBY3.SbXpklB6','admin',NULL,'$2y$10$QmOGgEygsPr6Hr5XBVWPEOcThXOkAdzJ.gSBT4TgJBY3.SbXpklB6','2024-03-24 19:35:34','2024-03-24 19:35:34'),
+  (11,'Pablo','pablo.quevedo@rpj.solutions.com','1234567890','$2y$10$NiehmezNwCIa3ufUb1Rnwel5oaYm6EaN/xCIZbhxjZh2/61qViPvy','admin',NULL,'$2y$10$NiehmezNwCIa3ufUb1Rnwel5oaYm6EaN/xCIZbhxjZh2/61qViPvy','2024-03-24 17:43:50','2024-03-24 17:43:50'),
+  (12,'Jose','jose.perez@rpj.solutions.com','1234567890','$2y$10$cD.ud2Ydhcvl9KguBQe95eK4CxOuti6QYb6OYCGRdi0YbUE/F9BeS','admin',NULL,'$2y$10$cD.ud2Ydhcvl9KguBQe95eK4CxOuti6QYb6OYCGRdi0YbUE/F9BeS','2024-03-24 19:35:58','2024-03-24 19:35:58'),
+  (13,'Javier','javier.comercial@rpj.solutions.com','1234567890','$2y$10$sHHIwYkeNvMGM56II5hJ2uD9n1tEs88fErI9os/k.8DkYV0FA0u1e','member',NULL,'$2y$10$sHHIwYkeNvMGM56II5hJ2uD9n1tEs88fErI9os/k.8DkYV0FA0u1e','2024-03-24 20:47:19','2024-03-24 20:47:19'),
+  (14,'Sara','sara.comercial@rpj.solutions.com','1234567890','$2y$10$FKxyr2t/I.roEYuMuea1k.vXzRyONBPEhCXM3V2S.4L4hJ0Uc2rSy','member',NULL,'$2y$10$FKxyr2t/I.roEYuMuea1k.vXzRyONBPEhCXM3V2S.4L4hJ0Uc2rSy','2024-03-24 20:47:50','2024-03-24 20:47:50'),
+  (15,'Hugo','hugo.soportecomercial@rpj.solutions.com','1234567890','$2y$10$0DrDOVkVJuLstnvtZK90pOK5twHg0whPCuFnXPY7LUFko/nnGj.n.','member',NULL,'$2y$10$0DrDOVkVJuLstnvtZK90pOK5twHg0whPCuFnXPY7LUFko/nnGj.n.','2024-03-24 20:50:24','2024-03-24 20:50:24'),
+  (16,'Felipe','felipe.soportecomercial@rpj.solutions.com','1234567890','$2y$10$l37uHbW74y4TURpmGHktZuG8snx6Kf9EZKuR1JWqnPH734auLTtfa','member',NULL,'$2y$10$l37uHbW74y4TURpmGHktZuG8snx6Kf9EZKuR1JWqnPH734auLTtfa','2024-03-24 20:50:41','2024-03-24 20:50:41'),
+  (17,'Blas','blas.preventa@rpj.solutions.com','1234567890','$2y$10$aaTf2SFP0dVP0tVstp4X8OpmHHmn9ewGQF6i1ER0DlI6Aqp5y2StS','member',NULL,'$2y$10$aaTf2SFP0dVP0tVstp4X8OpmHHmn9ewGQF6i1ER0DlI6Aqp5y2StS','2024-03-24 20:51:04','2024-03-24 20:51:04'),
+  (18,'Salomé','salome.preventa@rpj.solutions.com','1234567890','$2y$10$a2zbMKzXbr/D3ovRHX1uke3AbNT6vrjoZu2ZZCjDDZW7QJoJ.xPCC','member',NULL,'$2y$10$a2zbMKzXbr/D3ovRHX1uke3AbNT6vrjoZu2ZZCjDDZW7QJoJ.xPCC','2024-03-24 20:51:31','2024-03-24 20:51:31'),
+  (19,'Alberto','alberto.servicio@rpj.solutions.com','1234567890','$2y$10$xktcSxUavzCd/AaalngZduonR1Uf2hdhQ7kNtkMGooju6byOS4/B6','member',NULL,'$2y$10$xktcSxUavzCd/AaalngZduonR1Uf2hdhQ7kNtkMGooju6byOS4/B6','2024-03-24 20:51:46','2024-03-24 20:51:46')
 ;
 
 --
