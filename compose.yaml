@@ -24,9 +24,9 @@ services:
       always
 
   db:
-    image: mariadb:10.6
-    ports:
-      - "3306:3306"
+    image: mariadb:11.2
+    # ports:
+    #   - "3306:3306"
     volumes:
       - ./helpdesk-core-php/database:/docker-entrypoint-initdb.d                # Se ejecutarán todos los dumps.sql presentes en ese directorio del contenedor
       - mysql_data:/var/lib/mysql                                               # $ sudo ls -la /var/lib/docker/volumes/proyecto_mysql_data/_data
@@ -47,3 +47,4 @@ services:
 
 volumes:
   mysql_data:
+  # /var/lib/docker/volumes/proyecto_mysql_data/
