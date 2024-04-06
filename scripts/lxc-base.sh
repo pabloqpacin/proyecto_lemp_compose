@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# # En los LXC...
-# bash -c "$(https://github.com/pabloqpacin/lamp_docker/scripts/lxc-base.sh)"
-# - Ejecutado como root!!
-# - Se recomiendan 8GB de Almacenamiento para el LXC: tanto debian como ubuntu (+ docker)
-
+# # En los LXC o VMs (testeado siendo root en Debian LXC):
+# bash -c "$(curl -fsSL https://github.com/pabloqpacin/proyecto_lemp_compose/raw/main/scripts/lxc-base.sh)"
 
 apt_install(){
     if [ ! -e "/etc/apt/apt.conf.d/99show-versions" ]; then
@@ -91,7 +88,7 @@ setup_zsh(){
 
 start_compose(){
     if [ ! -d $HOME/PROYECTO ]; then
-        git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+        git clone https://github.com/pabloqpacin/proyecto_lemp_compose $HOME/PROYECTO
     fi
 
     if ! docker ps -a --format '{{.Names}}' | grep -q 'proyecto'; then

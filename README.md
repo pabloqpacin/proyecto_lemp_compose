@@ -1,4 +1,4 @@
-# lamp docker
+# lemp docker
 
 > Proyecto ASIR
 
@@ -19,7 +19,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/docker.sh)"
 2. En el contenedor LXC, configuramos el entorno y desplegamos la aplicación web
 
 ```bash
-bash -c "$(curl -fsSL https://github.com/pabloqpacin/lamp_docker/raw/main/scripts/lxc-base.sh)"
+bash -c "$(curl -fsSL https://github.com/pabloqpacin/proyecto_lemp_compose/raw/main/scripts/lxc-base.sh)"
 ```
 
 <!-- 3. Mantenimiento
@@ -73,7 +73,7 @@ sudo apt-get install git    # grc jq mycli
 Clonamos el repositorio:
 
 ```bash
-git clone https://github.com/pabloqpacin/lamp_docker $HOME/PROYECTO
+git clone https://github.com/pabloqpacin/proyecto_lemp_compose $HOME/PROYECTO
 ```
 
 Entramos al repo local y arrancamos docker compose:
