@@ -94,6 +94,7 @@ start_compose(){
     if ! docker ps -a --format '{{.Names}}' | grep -q 'proyecto'; then
         cd $HOME/PROYECTO
         docker compose up -d
+        ./scripts/exec-mysqldump.sh
         cd $HOME
     fi
 }
