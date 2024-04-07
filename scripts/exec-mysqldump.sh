@@ -1,12 +1,45 @@
 #!/usr/bin/env bash
 
-# Entramos al contenedor & Creamos el dump de la BD en el volumen
-docker exec -it proyecto-db-1 sh -c \
-    "mysqldump -u root -ppassword helpdesk_core_php > /var/lib/mysql/$(date +%F).sql"
+# NOTE: run as root
 
-# Verificar en el host
-sudo cp /var/lib/docker/volumes/proyecto_mysql_data/_data/$(date +%F).sql \
-        /tmp/$(date +%F).sql
+NOW=$(date '+%F-%Hh')
 
-sudo chown $USER /tmp/$(date +%F).sql
-# sudo chmod o+rwx /tmp/$(date +%F).sql
+make_dump_in_container(){
+    docker exec -it proyecto-db-1 sh -c \
+        "if [ ! -d /var/lib/mysql/archivo-db ]; then
+            mkdir /var/lib/mysql/archivo-db
+        fi"
+
+    docker exec -it proyecto-db-1 sh -c \
+        "mariadb-dump -u root -ppassword helpdesk_core_php > /var/lib/mysql/archivo-db/$NOW.sql ||
+            mysqldump -u root -ppassword helpdesk_core_php > /var/lib/mysql/archivo-db/$NOW.sql"
+}
+
+make_redundant_dump_in_local_fs(){
+    if [ ! -d /mnt/archivo-db ]; then
+        mkdir /mnt/archivo-db
+    fi
+
+    cp /var/lib/docker/volumes/proyecto_mysql_data/_data/archivo-db/$NOW.sql \
+        /mnt/archivo-db/$NOW.sql
+}
+
+ensure_cronjob_twice_everyday(){
+    if ! grep -q 'exec-mysqldump.sh' /var/spool/cron/crontabs/$USER; then
+        echo '0 6,18 * * * $HOME/PROYECTO/scripts/exec-mysqldump.sh' | \
+            tee -a /var/spool/cron/crontabs/$USER
+    fi
+}
+
+# ---
+
+if true; then
+    make_dump_in_container &&
+    make_redundant_dump_in_local_fs
+
+    ensure_cronjob_twice_everyday
+fi
+
+
+# NOW=$(date '+%F_%R')
+# MES=$(date +%b)
