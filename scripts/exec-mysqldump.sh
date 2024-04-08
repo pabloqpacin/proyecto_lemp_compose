@@ -5,12 +5,12 @@
 NOW=$(date '+%F-%Hh')
 
 make_dump_in_container(){
-    docker exec -it proyecto-db-1 sh -c \
+    docker exec proyecto-db-1 sh -c \
         "if [ ! -d /var/lib/mysql/archivo-db ]; then
             mkdir /var/lib/mysql/archivo-db
         fi"
 
-    docker exec -it proyecto-db-1 sh -c \
+    docker exec proyecto-db-1 sh -c \
         "mariadb-dump -u root -ppassword helpdesk_core_php > /var/lib/mysql/archivo-db/$NOW.sql ||
             mysqldump -u root -ppassword helpdesk_core_php > /var/lib/mysql/archivo-db/$NOW.sql"
 }
