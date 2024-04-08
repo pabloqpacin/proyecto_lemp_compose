@@ -76,7 +76,7 @@ setup_zsh(){
         ln -s ~/dotfiles/.zshrc ~/
     fi
     
-    if [[! -d ~/dotfiles/zsh/plugins/zsh-autosuggestions || ! -d ~/dotfiles/zsh/plugins/zsh-syntax-highlighting ]]; then
+    if [[ ! -d ~/dotfiles/zsh/plugins/zsh-autosuggestions || ! -d ~/dotfiles/zsh/plugins/zsh-syntax-highlighting ]]; then
         bash $HOME/dotfiles/zsh/plugins/clone-em.sh
     fi
 }
@@ -94,7 +94,7 @@ start_compose(){
     if ! docker ps -a --format '{{.Names}}' | grep -q 'proyecto'; then
         cd $HOME/PROYECTO
         docker compose up -d
-        ./scripts/exec-mysqldump.sh
+        sleep 7 && ./scripts/exec-mysqldump.sh
         cd $HOME
     fi
 }

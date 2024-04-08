@@ -21,11 +21,11 @@ make_redundant_dump_in_local_fs(){
     fi
 
     cp /var/lib/docker/volumes/proyecto_mysql_data/_data/archivo-db/$NOW.sql \
-        /mnt/archivo-db/$NOW.sql
+      /mnt/archivo-db/$NOW.sql
 }
 
 ensure_cronjob_twice_everyday(){
-    if ! grep -q 'exec-mysqldump.sh' /var/spool/cron/crontabs/$USER; then
+    if ! grep -qs 'exec-mysqldump.sh' /var/spool/cron/crontabs/$USER; then
         echo '0 6,18 * * * $HOME/PROYECTO/scripts/exec-mysqldump.sh' | \
             tee -a /var/spool/cron/crontabs/$USER
     fi
@@ -43,3 +43,6 @@ fi
 
 # NOW=$(date '+%F_%R')
 # MES=$(date +%b)
+
+    # echo '0 6,18 * * * $HOME/PROYECTO/scripts/exec-mysqldump.sh' | crontab -
+    # EDITOR='vi -c pwd -c wq' crontab -e
