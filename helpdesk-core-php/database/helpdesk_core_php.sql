@@ -88,7 +88,10 @@ INSERT INTO `requester` (`id`, `name`, `email`, `phone`, `created_at`, `updated_
   (43, 'test123', 'kangkan@email.com', '1234567898', '2019-06-07 06:51:33', '2019-06-07 06:51:33'),
   (44, 'test ticket', 'johndoe@helpdesk.com', '1234567898', '2019-06-07 06:52:04', '2019-06-07 06:52:04'),
   (45, 'demo ticket', 'demo@email.com', '1234567899', '2023-03-20 06:57:25', '2023-03-20 06:57:25'),
-  (46, 'demo', 'demo@email.com', '1234567899', '2023-03-20 11:11:23', '2023-03-20 11:11:23')
+  (46, 'demo', 'demo@email.com', '1234567899', '2023-03-20 11:11:23', '2023-03-20 11:11:23'),
+  (50, 'Rommel', 'demo@email.com', '1234567899', '2023-03-20 11:11:23', '2023-03-20 11:11:23'),
+  (51, 'Pablo', 'demo@email.com', '1234567899', '2023-03-20 11:11:23', '2023-03-20 11:11:23'),
+  (52, 'Jose', 'demo@email.com', '1234567899', '2023-03-20 11:11:23', '2023-03-20 11:11:23')
 ;
 
 -- --------------------------------------------------------
@@ -181,15 +184,16 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id`, `title`, `body`, `requester`, `team`, `team_member`, `status`, `priority`, `rating`, `created_at`, `updated_at`, `deleted_at`) VALUES
-  (1, 'subject', 'thi ', 36, 2, '3', 'closed', 'low', 0, '2019-05-19 13:48:31', NULL, NULL),
-  (2, 'subject', 'thi ', 37, 2, '1', 'solved', 'low', 0, '2019-05-19 13:48:37', NULL, NULL),
-  (4, 'test', 'this is a comment', 39, 2, '4', 'open', 'low', 0, '2019-05-23 17:18:25', NULL, NULL),
-  (5, 'test', 'hfg', 40, 1, '1', 'pending', 'high', 0, '2019-05-30 13:55:17', NULL, NULL),
-  (6, 'abcd', 'no comment', 41, 3, '4', 'open', 'low', 0, '2019-06-07 02:07:43', NULL, NULL),
-  (8, 'abcd', 'abcd', 43, 1, '4', 'open', 'low', 0, '2019-06-07 06:51:33', NULL, NULL),
-  (9, 'no subject', 'abcd', 44, 1, '4', 'open', 'high', 0, '2019-06-07 06:52:04', NULL, NULL),
-  (10, 'demo subject', 'se', 45, 2, '9', 'closed', 'low', 0, '2023-03-20 06:57:25', NULL, NULL),
-  (11, 'demo subject', 'demo comment', 46, 1, '4', 'solved', 'medium', 0, '2023-03-20 11:11:23', NULL, NULL)
+  (1, 'subject', 'thi ', 50, 10, '3', 'closed', 'low', 0, '2019-05-19 13:48:31', NULL, NULL),
+  -- (2, 'subject', 'thi ', 37, 2, '1', 'solved', 'low', 0, '2019-05-19 13:48:37', NULL, NULL),
+  -- (4, 'test', 'this is a comment', 39, 2, '4', 'open', 'low', 0, '2019-05-23 17:18:25', NULL, NULL),
+  (5, 'test', 'hfg', 51, 10, '1', 'pending', 'high', 0, '2019-05-30 13:55:17', NULL, NULL),
+  (6, 'abcd', 'no comment', 52, 11, '4', 'open', 'low', 0, '2019-06-07 02:07:43', NULL, NULL),
+  -- (8, 'abcd', 'abcd', 43, 1, '4', 'open', 'low', 0, '2019-06-07 06:51:33', NULL, NULL),
+  (9, 'no subject', 'abcd', 52, 12, '4', 'open', 'high', 0, '2019-06-07 06:52:04', NULL, NULL),
+  -- (10, 'demo subject', 'se', 45, 2, '9', 'closed', 'low', 0, '2023-03-20 06:57:25', NULL, NULL),
+  (11, 'demo subject', 'demo comment', 51, 10, '4', 'solved', 'medium', 0, '2023-03-20 11:11:23', NULL, NULL),
+  (12,'Error conexion red','foo',50,13,'10','pending','medium',0,'2024-04-07 17:05:25',NULL,NULL)
 ;
 
 -- --------------------------------------------------------
